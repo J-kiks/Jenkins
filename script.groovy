@@ -14,7 +14,6 @@ def buildImage() {
 
 def testApp() {
     echo 'Testing the application ....'
-    echo "Executing pipeline for branch $BRANCH_NAME"
 }
 
 def deployApp() {
