@@ -17,6 +17,7 @@ pipeline {
       steps {
           script{
               gv.testApp
+              echo "Executing pipeline for branch $BRANCH_NAME"
           }
       }
     }
