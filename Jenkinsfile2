@@ -11,30 +11,28 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    script {
-                        gv = load "script.groovy"
-                    }
+                    gv = load "script.groovy"
                 }
             }
-            stage("build jar") {
-                steps {
-                    script {
-                        buildJar()
-                    }
+        }
+        stage("build jar") {
+            steps {
+                script {
+                    buildJar()
                 }
             }
-            stage("build image") {
-                steps {
-                    script {
-                        buildImage()
-                    }
+        }
+        stage("build image") {
+            steps {
+                script {
+                    buildImage()
                 }
             }
-            stage("deploy") {
-                steps {
-                    script {
-                        gv.deployApp()
-                    }
+        }
+        stage("deploy") {
+            steps {
+                script {
+                    gv.deployApp()
                 }
             }
         }
