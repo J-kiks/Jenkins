@@ -1,5 +1,9 @@
 #!/user/bin/env groovy
-@Library('Jenkins-Shared-Library')
+
+library identifier: 'JSL@master', retriever: modernSCM(
+        [$class: 'GitSCMSource',
+        remote: 'https://github.com/J-kiks/JSL.git',
+        credentialsId: 'git-credentials'])
 def gv
 
 pipeline {
