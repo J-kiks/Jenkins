@@ -13,12 +13,14 @@ pipeline {
           }
       }
     }
-    stage("build jar") {
-      when {
-          expression{
-              BRANCH_NAME == "master"
-          }
+    stage("test") {
+      steps {
+          script{
+              gv.testApp()
+          }          
       }
+    }
+    stage("build jar") {
       steps {
           script{
               gv.buildJar()
@@ -26,11 +28,6 @@ pipeline {
       }
     }
     stage("build image") {
-      when {
-          expression{
-              BRANCH_NAME == "master"
-          }
-      }
       steps {
           script{
               gv.buildImage()
@@ -38,11 +35,6 @@ pipeline {
       }
     }
     stage("deploy") {
-      when {
-          expression{
-              BRANCH_NAME == "master"
-          }
-      }
       steps {
           script{
               gv.deployApp()
