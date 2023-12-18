@@ -3,13 +3,13 @@
 library identifier: 'JSL@master', retriever: modernSCM(
         [$class: 'GitSCMSource',
         remote: 'https://github.com/J-kiks/JSL.git',
-        credentialsId: 'git-credentials'])
+        credentialsId: 'github-cred'])
 def gv
 
 pipeline {
     agent any
     tools {
-        maven 'maven-3.9'
+        maven 'maven'
     }
     stages {
         stage("init") {
